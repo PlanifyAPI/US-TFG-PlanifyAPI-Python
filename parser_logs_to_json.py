@@ -59,20 +59,23 @@ def parse_log_file(log_file_path:str) -> list:
 
     return parsed_logs
 
-
 def save_json_file(data: list, json_file_path: str) -> None:
     """
-    Saves the given data as a JSON file at the specified path.
+    Save the given data as a JSON file.
 
     Args:
-        data: The data to be saved as JSON.
-        json_file_path: The path where the JSON file will be saved.
+        data (list): The data to be saved as JSON. It should be a list of dictionaries.
+        json_file_path (str): The path to the JSON file.
 
     Returns:
         None
     """
+
+    json_string = '\n'.join(json.dumps(entry) for entry in data)
+
     with open(json_file_path, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=4)
+        file.write(json_string)
+
 
 def main():
     logs_paths = os.listdir("log")
