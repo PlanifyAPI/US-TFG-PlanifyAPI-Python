@@ -1,3 +1,5 @@
+"""This module contains functions to parse log files and save the parsed data as JSON."""
+
 import re
 import os
 import json
@@ -6,13 +8,17 @@ from datetime import datetime
 
 def parse_log_line(log_lines: str) -> list:
     """
-    Parses log lines and returns a list of dictionaries containing the timestamp, level, and description.
+    Parses log lines and returns a list of dictionaries representing each log entry.
 
     Args:
-        log_lines (list): The list of log lines to be parsed.
+        log_lines (str): The log lines to parse.
 
     Returns:
-        list: A list of dictionaries containing the parsed log information.
+        list: A list of dictionaries representing each log entry.
+        Each dictionary contains the following keys:
+            - timestamp (str): The timestamp of the log entry in the format "YYYY-MM-DD HH:MM:SS".
+            - level (str): The log level.
+            - description (str): The description of the log entry.
     """
     logs = []
     current_log = {}
@@ -44,13 +50,13 @@ def parse_log_line(log_lines: str) -> list:
 
 def parse_log_file(log_file_path: str) -> list:
     """
-    Parses a log file and returns a list of parsed log lines.
+    Parses a log file and returns a list of parsed logs.
 
     Args:
         log_file_path (str): The path to the log file.
 
     Returns:
-        list: A list of dictionaries representing the parsed log lines.
+        list: A list of parsed logs.
     """
     with open(log_file_path, "r", encoding="utf-8") as file:
         log_lines = file.readlines()
@@ -62,23 +68,37 @@ def parse_log_file(log_file_path: str) -> list:
 
 def save_json_file(data: list, json_file_path: str) -> None:
     """
-    Save the given data as a JSON file.
+    Save a list of data as a JSON file.
 
     Args:
-        data (list): The data to be saved as JSON. It should be a list of dictionaries.
-        json_file_path (str): The path to the JSON file.
+        data (list): The list of data to be saved as JSON.
+        json_file_path (str): The file path where the JSON file will be saved.
 
     Returns:
         None
     """
-
     json_string = "\n".join(json.dumps(entry) for entry in data)
 
     with open(json_file_path, "w", encoding="utf-8") as file:
         file.write(json_string)
 
 
-def main():
+def process_logs() -> None:
+    """
+    Process the log files in the 'log' folder and parse them to JSON format.
+
+    This function iterates over the log files in the 'log' folder and checks
+    if each file has already been parsed to JSON.
+    If a log file has not been parsed yet, it calls the 'parse_log_file' function
+    to parse the file and saves the parsed
+    logs to a JSON file in the same folder.
+
+    Note: This function assumes that the 'log' folder exists
+    and contains the log files to be processed.
+
+    Returns:
+        None
+    """
     logs_paths = os.listdir("log")
     for log_path in logs_paths:
         print(f"Procesando archivos en la carpeta: {log_path}")
@@ -94,4 +114,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    process_logs()
