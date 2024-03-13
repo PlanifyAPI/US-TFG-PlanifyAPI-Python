@@ -42,7 +42,7 @@ def parse_log_line(log_lines: str) -> list:
     return logs
 
 
-def parse_log_file(log_file_path:str) -> list:
+def parse_log_file(log_file_path: str) -> list:
     """
     Parses a log file and returns a list of parsed log lines.
 
@@ -55,9 +55,10 @@ def parse_log_file(log_file_path:str) -> list:
     with open(log_file_path, "r", encoding="utf-8") as file:
         log_lines = file.readlines()
 
-    parsed_logs = parse_log_line(log_lines, log_file_path)
+    parsed_logs = parse_log_line(log_lines)
 
     return parsed_logs
+
 
 def save_json_file(data: list, json_file_path: str) -> None:
     """
@@ -71,7 +72,7 @@ def save_json_file(data: list, json_file_path: str) -> None:
         None
     """
 
-    json_string = '\n'.join(json.dumps(entry) for entry in data)
+    json_string = "\n".join(json.dumps(entry) for entry in data)
 
     with open(json_file_path, "w", encoding="utf-8") as file:
         file.write(json_string)
