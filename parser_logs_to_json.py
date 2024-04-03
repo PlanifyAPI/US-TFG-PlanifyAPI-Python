@@ -33,10 +33,12 @@ def parse_log_line(log_lines: str) -> list:
             level = match.group("level")
             description = match.group("description")
 
-            timestamp = datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+            timestamp = datetime.timestamp(
+                datetime.strptime(timestamp_str, "%Y-%m-%d %H:%M:%S")
+            )
 
             current_log = {
-                "timestamp": timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+                "timestamp": timestamp,
                 "level": level,
                 "description": description,
             }
