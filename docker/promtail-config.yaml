@@ -15,7 +15,7 @@ scrape_configs:
           - localhost
         labels:
           job: varlogs
-          __path__: /var/log/amadeus__r_ft_/*json
+          __path__: /var/log/*/*_filtered.json
     pipeline_stages:
       - json:
           expressions:
