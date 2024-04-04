@@ -19,7 +19,7 @@ def filter_logs(file: str) -> None:
     with open(file, "r", encoding="utf-8") as f:
         with open(file_write, "w", encoding="utf-8") as f_out:
             for line in f:
-                if "GET" in line or "HTTP/1.1" in line:
+                if "Request method" in line or "HTTP/1.1" in line:
                     f_out.write(line)
 
 
