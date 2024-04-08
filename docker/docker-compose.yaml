@@ -13,7 +13,7 @@ services:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
-      - /home/javi/dev/tfg/docker/loki-config.yaml:/etc/loki/local-config.yaml
+      - /home/javi/dev/US-TFG-PlanifyAPI-Python/docker/loki-config.yaml:/etc/loki/local-config.yaml
     networks:
       - loki
 
