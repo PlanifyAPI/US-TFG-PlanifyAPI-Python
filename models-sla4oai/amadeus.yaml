@@ -199,3 +199,213 @@ plans:
               period:
                 amount: 1
                 unit: hour
+      /v1/reference-data/locations/pois:
+        get:
+          requests:
+            - max: 400
+              period:
+                amount: 1
+                unit: hour
+      /v1/reference-data/locations/pois/by-square:
+        get:
+          requests:
+            - max: 400
+              period:
+                amount: 1
+                unit: hour
+      /v1/reference-data/locations/pois/*:
+        get:
+          requests:
+            - max: 200
+              period:
+                amount: 1
+                unit: hour
+      /v1/shopping/activities:
+        get:
+          requests:
+            - max: 400
+              period:
+                amount: 1
+                unit: hour
+      /v1/shopping/activities/by-square:
+        get:
+          requests:
+            - max: 400
+              period:
+                amount: 1
+                unit: hour
+      /v1/shopping/activities/*:
+        get:
+          requests:
+            - max: 200
+              period:
+                amount: 1
+                unit: hour
+      /v1/reference-data/locations/cities:
+        get:
+          requests:
+            - max: 3000
+              period:
+                amount: 1
+                unit: hour
+      /v1/safety/safety-rated-locations:
+        get:
+          requests:
+            - max: 400
+              period:
+                amount: 1
+                unit: hour
+      /v1/safety/safety-rated-locations/by-square:
+        get:
+          requests:
+            - max: 400
+              period:
+                amount: 1
+                unit: hour
+      /v1/safety/safety-rated-locations/*:
+        get:
+          requests:
+            - max: 200
+              period:
+                amount: 1
+                unit: hour
+      /v1/ordering/transfer-orders:
+        post:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/ordering/transfer-orders/*/transfers/cancellation:
+        post:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/shopping/transfer-offers:
+        post:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/travel/analytics/air-traffic/traveled:
+        get:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/travel/analytics/air-traffic/booked:
+        get:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/travel/analytics/air-traffic/busiest-period:
+        get:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/location/analytics/category-rated-locations:
+        get:
+          requests:
+            - max: 400
+              period:
+                amount: 1
+                unit: hour
+      /v1/reference-data/locations/hotels/by-hotels:
+        get:
+          requests:
+            - max: 1000
+              period:
+                amount: 1
+                unit: hour
+      /v1/reference-data/locations/hotels/by-city:
+        get:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/reference-data/locations/hotels/by-geocode:
+        get:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v2/shopping/hotel-offers:
+        get:
+          requests:
+            - max: 2400
+              period:
+                amount: 1
+                unit: hour
+      /v2/shopping/hotel-offers/by-hotel:
+        get:
+          requests:
+            - max: 900
+              period:
+                amount: 1
+                unit: hour
+      /v2/shopping/hotel-offers/*:
+        get:
+          requests:
+            - max: 900
+              period:
+                amount: 1
+                unit: hour
+      /v3/shopping/hotel-offers:
+        get:
+          requests:
+            - max: 3000
+              period:
+                amount: 1
+                unit: hour
+      /v3/shopping/hotel-offers/*:
+        get:
+          requests:
+            - max: 3000
+              period:
+                amount: 1
+                unit: hour
+      /v1/booking/hotel-bookings:
+        post:
+          requests:
+            - max: 3000
+              period:
+                amount: 1
+                unit: hour
+      /v2/e-reputation/hotel-sentiments:
+        get:
+          requests:
+            - max: 2000
+              period:
+                amount: 1
+                unit: hour
+      /v1/reference-data/locations/hotel:
+        get:
+          requests:
+            - max: 10000
+              period:
+                amount: 1
+                unit: hour
+      /v3/travel/trip-parser:
+        post:
+          requests:
+            - max: 500
+              period:
+                amount: 1
+                unit: hour
+      /v1/travel/predictions/trip-purpose:
+        get:
+          requests:
+            - max: 10000
+              period:
+                amount: 1
+                unit: hour
