@@ -1,0 +1,62 @@
+context:
+  id: plans
+  sla: '1.0'
+  version: '1.0'
+  type: plans
+  api: ../openapi-specification/languagetool/languagetool_oas.yaml
+infrastructure:
+  supervisor: 'http://supervisor.oai.governify.io/api/v2'
+  monitor: 'http://monitor.oai.governify.io/api/v1'
+metrics:
+  requests:
+    type: integer
+    format: int64
+    description: Number of requests, regarding the resource
+    resolution: consumption
+  maxNumberCharsForRequests:
+    type: integer
+    format: int64
+    description: Maximum number of characters for requests
+    resolution: consumption
+  maxNumberCharsForMinutes:
+    type: integer
+    format: int64
+    description: Maximum number of characters for minutes
+    resolution: consumption
+pricing:
+  cost: 0
+  currency: EUR
+  billing: monthly
+plans:
+  Free:
+    quotas:
+      /*:
+        all:
+          requests:
+            - max: 20
+              period:
+                amount: 1
+                unit: minute
+          maxNumberCharsForRequests:
+            - max: 20000
+          maxNumberCharsForMinutes:
+            - max: 75000
+              period:
+                amount: 1
+                unit: minute
+  Premium:
+    quotas:
+      /*:
+        all:
+          requests:
+            - max: 80
+              period:
+                amount: 1
+                unit: minute
+          maxNumberCharsForRequests:
+            - max: 600000
+          maxNumberCharsForMinutes:
+            - max: 300000
+              period:
+                amount: 1
+                unit: minute
