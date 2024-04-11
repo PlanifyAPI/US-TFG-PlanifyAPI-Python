@@ -3,7 +3,7 @@ context:
   sla: '1.0'
   version: '1.0'
   type: plans
-  api: ../openapi-specification/marvel/marvel_oas.json
+  api: ../openapi-specification/omdb/omdb_oas.json
 infrastructure:
   supervisor: 'http://supervisor.oai.governify.io/api/v2'
   monitor: 'http://monitor.oai.governify.io/api/v1'
@@ -23,7 +23,7 @@ plans:
       /*:
         all:
           requests:
-            - max: 3000
+            - max: 1000
               period:
                 amount: 1
                 unit: day

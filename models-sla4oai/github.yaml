@@ -1,5 +1,6 @@
 context:
   id: plans
+  sla: '1.0'
   version: '1.0'
   type: plans
   api: ../openapi-specification/github/github_oas.yaml
