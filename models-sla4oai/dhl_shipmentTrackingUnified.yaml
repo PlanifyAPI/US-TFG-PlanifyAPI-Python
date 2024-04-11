@@ -3,7 +3,7 @@ context:
   sla: '1.0'
   version: '1.0'
   type: plans
-  api: ../openapi-specification/DHL/DHL_locationFinderUnified_oas.yaml
+  api: ../openapi-specification/DHL/DHL_shipmentTrackingUnified_oas.yaml
 infrastructure:
   supervisor: 'http://supervisor.oai.governify.io/api/v2'
   monitor: 'http://monitor.oai.governify.io/api/v1'
@@ -24,11 +24,19 @@ plans:
       custom: true
       currency: EUR
       billing: monthly
+    rates:
+      /*:
+        all:
+          requests:
+            - max: 1
+              period:
+                amount: 5
+                unit: second
     quotas:
       /*:
         all:
           requests:
-            - max: 500
+            - max: 250
               period:
                 amount: 1
                 unit: day
