@@ -307,7 +307,9 @@ class RatesObject:
         Returns:
             None
         """
-        self.rates: Dict[str, Any] = data
+        self.paths: List[Dict[PathObject, Any]] = [
+            PathObject(data.get(key, {})) for key in data.keys()
+        ]
 
     def __str__(self) -> str:
         """
