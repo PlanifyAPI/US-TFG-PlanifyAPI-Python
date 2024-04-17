@@ -28,84 +28,84 @@ plans:
       /v3/businesses/search:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/businesses/search/phone:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/transactions/{transaction_type}/search:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/businesses/{id}:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/businesses/matches:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/businesses/{id}/reviews:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/autocomplete:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/events/{id}:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/events:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/events/featured:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/categories/{alias}:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
       /v3/categories:
         get:
           requests:
-            - max: 5000
+            - max: 300
               period:
                 amount: 1
                 unit: day
