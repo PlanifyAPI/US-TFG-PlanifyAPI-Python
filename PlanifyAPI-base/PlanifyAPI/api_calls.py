@@ -44,7 +44,7 @@ class APICall:
         """
         self.request_count += 1
         response = requests.request(
-            self.method, self.url, headers=self.headers, data=self.body, timeout=10
+            self.method, self.url, headers=self.headers, data=self.body, timeout=25
         )
         self.log_request(response)
         return response
@@ -70,11 +70,56 @@ class APICall:
             response (requests.Response): The response object.
         """
         log_data = {}
+        error_codes = [
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411,
+            412,
+            413,
+            414,
+            415,
+            416,
+            417,
+            418,
+            421,
+            422,
+            423,
+            424,
+            425,
+            426,
+            428,
+            429,
+            431,
+            451,
+            500,
+            501,
+            502,
+            503,
+            504,
+            505,
+            506,
+            507,
+            508,
+            510,
+            511,
+        ]
+
         log_data["timestamp"] = int(datetime.now().timestamp())
 
-        if response is None:
+        if response is None or response.status_code in error_codes:
             log_data["level"] = "ERROR"
-            log_data["description"] = f"API: {self.url} - Request method: {self.method}"
+            log_data["description"] = (
+                f"API: {self.name}:{self.request_count} - Response: {response.status_code}"
+            )
         else:
             log_data["level"] = "INFO"
             log_data["description"] = (
