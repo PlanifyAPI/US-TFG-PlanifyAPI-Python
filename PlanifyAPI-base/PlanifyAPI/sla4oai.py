@@ -34,25 +34,6 @@ class SLA4OAI:
             data.get("configuration", {})
         )
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the SLA object.
-
-        Returns:
-            str: String representation of the SLA object.
-        """
-        return f"""SLA4OAI: 
-        {{
-            {self.context},
-            {self.infrastructure},
-            {self.pricing},
-            {self.metrics},
-            {self.plans},
-            {self.quotas},
-            {self.rates},
-            {self.guarantees},
-            {self.configuration}\n}}"""
-
 
 class ContextObject:
     """
@@ -77,15 +58,6 @@ class ContextObject:
         self.consumer: str = data.get("consumer", "")
         self.validity: ValidityObject = ValidityObject(data.get("validity", {}))
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the context object.
-
-        Returns:
-            str: String representation of the context object.
-        """
-        return "context: " + str(self.__dict__)
-
 
 class ValidityObject:
     """
@@ -105,15 +77,6 @@ class ValidityObject:
         self.effective_date: str = data.get("effectiveDate", "")
         self.expiration_date: str = data.get("expirationDate", "")
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the validity object.
-
-        Returns:
-            str: String representation of the validity object.
-        """
-        return str(self.__dict__)
-
 
 class InfrastructureObject:
     """
@@ -132,15 +95,6 @@ class InfrastructureObject:
         """
         self.supervisor: str = data.get("supervisor", "")
         self.monitor: str = data.get("monitor", "")
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the infrastructure object.
-
-        Returns:
-            str: String representation of the infrastructure object.
-        """
-        return "infrastructure: " + str(self.__dict__)
 
 
 class PricingObject:
@@ -163,15 +117,6 @@ class PricingObject:
         self.currency: str = data.get("currency", "USD")
         self.billing: str = data.get("billing", "monthly")
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the pricing object.
-
-        Returns:
-            str: String representation of the pricing object.
-        """
-        return str(self.__dict__)
-
 
 class MetricsObject:
     """
@@ -189,15 +134,6 @@ class MetricsObject:
             None
         """
         self.metrics: Dict[str, Any] = data
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the metrics object.
-
-        Returns:
-            str: String representation of the metrics object.
-        """
-        return str(self.__dict__)
 
 
 class PlansObject:
@@ -218,15 +154,6 @@ class PlansObject:
         self.plan: Dict[str, PlanObject] = {
             plan_name: PlanObject(plan_data) for plan_name, plan_data in data.items()
         }
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the plans object.
-
-        Returns:
-            str: String representation of the plans object.
-        """
-        return str(self.__dict__)
 
 
 class PlanObject:
@@ -253,15 +180,6 @@ class PlanObject:
         self.rates: RatesObject = RatesObject(data.get("rates", {}))
         self.guarantees: GuaranteesObject = GuaranteesObject(data.get("guarantees", {}))
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the plan object.
-
-        Returns:
-            str: String representation of the plan object.
-        """
-        return str(self.__dict__)
-
 
 class QuotasObject:
     """
@@ -281,15 +199,6 @@ class QuotasObject:
         self.paths: List[Dict[PathObject, Any]] = [
             PathObject(data.get(key, {})) for key in data.keys()
         ]
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the quotas object.
-
-        Returns:
-            str: String representation of the quotas object.
-        """
-        return str(self.__dict__)
 
 
 class RatesObject:
@@ -311,15 +220,6 @@ class RatesObject:
             PathObject(data.get(key, {})) for key in data.keys()
         ]
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the rates object.
-
-        Returns:
-            str: String representation of the rates object.
-        """
-        return str(self.__dict__)
-
 
 class GuaranteesObject:
     """
@@ -338,15 +238,6 @@ class GuaranteesObject:
         """
         self.guarantees: Dict[str, Any] = data
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the guarantees object.
-
-        Returns:
-            str: String representation of the guarantees object.
-        """
-        return str(self.__dict__)
-
 
 class ConfigurationsObject:
     """
@@ -364,15 +255,6 @@ class ConfigurationsObject:
             None
         """
         self.configurations: Dict[str, Any] = data
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the configurations object.
-
-        Returns:
-            str: String representation of the configurations object.
-        """
-        return str(self.__dict__)
 
 
 class OverageObject:
@@ -393,16 +275,6 @@ class OverageObject:
         self.overage: int = data.get("excess", 0)
         self.cost: float = data.get("cost", 0.0)
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the overage object.
-
-        Returns:
-            str: String representation of the overage object.
-        """
-
-        return str(self.__dict__)
-
 
 class CostObject:
     """
@@ -420,15 +292,6 @@ class CostObject:
             None
         """
         self.overage: OverageObject = OverageObject(data.get("overage", {}))
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the cost object.
-
-        Returns:
-            str: String representation of the cost object.
-        """
-        return str(self.__dict__)
 
 
 class PeriodObject:
@@ -449,45 +312,33 @@ class PeriodObject:
         self.amount: int = data.get("amount", 0)
         self.unit: str = data.get("unit", "")
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the period object.
-
-        Returns:
-            str: String representation of the period object.
-        """
-        return str(self.__dict__)
-
 
 class LimitObject:
     """
     Represents a limit within an SLA.
     """
 
-    def __init__(self, *keys) -> None:
+    def __init__(self, data: Dict[str, Dict[str, Any]]) -> None:
         """
         Initializes a limit object.
 
         Args:
-            *keys: Variable number of dictionaries representing limit data.
+            data (Dict[str, Dict[str, Any]]): A dictionary containing limit data.
 
         Returns:
             None
         """
-        for key in keys:
-            self.max: int = key.get("max", 0)
-            self.custom: bool = key.get("custom", False)
-            self.period: PeriodObject = PeriodObject(key.get("period", {}))
-            self.cost: CostObject = CostObject(key.get("cost", {}))
+        self.metrics: List[tuple] = [
+            (key, {k: v for k, v in value.items()})
+            for key, values in data.items()
+            for value in values
+        ]
 
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the limit object.
-
-        Returns:
-            str: String representation of the limit object.
-        """
-        return str(self.__dict__)
+        for _, value in self.metrics:
+            self.max: int = value.get("max", 0)
+            self.custom: bool = value.get("custom", False)
+            self.period: PeriodObject = PeriodObject(value.get("period", {}))
+            self.cost: CostObject = CostObject(value.get("cost", {}))
 
 
 class OperationObject:
@@ -506,17 +357,8 @@ class OperationObject:
             None
         """
         self.limits: List[LimitObject] = [
-            LimitObject(*values) for values in data.values()
+            (key, LimitObject(values)) for key, values in data.items()
         ]
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the operation object.
-
-        Returns:
-            str: String representation of the operation object.
-        """
-        return str(self.__dict__)
 
 
 class PathObject:
@@ -535,14 +377,5 @@ class PathObject:
             None
         """
         self.operations: List[Dict[OperationObject, Any]] = [
-            OperationObject(data.get(key, {})) for key in data.keys()
+            OperationObject({key: data.get(key, {})}) for key in data.keys()
         ]
-
-    def __str__(self) -> str:
-        """
-        Returns a string representation of the path object.
-
-        Returns:
-            str: String representation of the path object.
-        """
-        return str(self.__dict__)
