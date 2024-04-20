@@ -1,0 +1,1666 @@
+context:
+  id: plans
+  sla: '1.0'
+  version: '1.0'
+  type: plans
+  api: ../openapi-specification/github/github_oas.yaml
+infrastructure:
+  supervisor: 'http://supervisor.oai.governify.io/api/v2'
+  monitor: 'http://monitor.oai.governify.io/api/v1'
+metrics:
+  requests:
+    type: integer
+    format: int64
+    description: 'Number of requests, regarding the resource'
+    resolution: consumption
+  authenticatedRequests:
+    type: integer
+    format: int64
+    description: 'Number of requests, regarding the resource'
+    resolution: consumption
+  actionMinutes:
+    type: integer
+    format: int64
+    description: 'Number of action minutes'
+    resolution: consumption
+    unit: minutes
+  packagesStorage:
+    type: integer
+    format: int64
+    description: 'Number packages storage'
+    resolution: consumption
+pricing:
+  cost: 0
+  currency: USD
+  period:
+    amount: 1
+    unit: month
+availability: '2009-10-09T21:30:00.00Z'
+configuration: {}
+plans:
+  Free:
+    pricing:
+      cost: 0
+    rates:
+      '/*':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/{owner}/{name}/import/lfs':
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/admin/ldap/teams/{team_id}/mapping':
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/admin/ldap/teams/{team_id}/sync':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/admin/ldap/users/{username}/mapping':
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/admin/ldap/users/{username}/sync':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/admin/organizations':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/repos/{owner}/{repo}/topics':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/repos/{owner}/{repo}/traffic/clones':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/repos/{owner}/{repo}/traffic/popular/paths':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/repos/{owner}/{repo}/traffic/popular/referrers':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/repos/{owner}/{repo}/traffic/views':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/repositories':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/scim/v2/organizations/{organization}/users':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/scim/v2/organizations/{organization}/users/{id}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/search/code':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/search/commits':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/search/issues':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/search/repositories':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/search/users':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/setup/api/configcheck':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/setup/api/configure':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/setup/api/maintenance':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/setup/api/settings':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/setup/api/settings/authorized-keys':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/setup/api/start':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/setup/api/upgrade':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/staff/indexing_jobs':
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/invitations':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/members':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/members/{username}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/memberships/{username}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/repos':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/repos/{org}/{repo}':
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/repos/{owner}/{repo}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/teams/{id}/teams':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/blocks':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/blocks/{username}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/email/visibility':
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/emails':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/followers':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/following':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/following/{username}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/gpg_keys':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/gpg_keys/{id}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/installations':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/installations/{installation_id}/repositories':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/installations/{installation_id}/repositories/{repository_id}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/issues':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/keys':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/keys/{id}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/marketplace_purchases':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/marketplace_purchases/stubbed':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/memberships/orgs':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/memberships/orgs/{org}':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/orgs':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/public_emails':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/repos':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        post:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/repository_invitations':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/repository_invitations/{invitation_id}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        patch:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/starred':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/starred/{owner}/{repo}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/subscriptions':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/subscriptions/{owner}/{repo}':
+        delete:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+        put:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/user/teams':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/events':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/events/orgs/{org}':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/events/public':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/followers':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/following':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/following/{target_user}':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/gists':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/gpg_keys':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/keys':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/orgs':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/received_events':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/received_events/public':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/repos':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/starred':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+
+      '/users/{username}/subscriptions':
+        get:
+          requests:
+            - max: 60
+              period:
+                amount: 1
+                unit: hour
+          authenticatedRequests:
+            - max: 5000
+              period:
+                amount: 1
+                unit: hour
+    quotas:
+      '/{owner}/{name}/import/large_files':
+        get:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+      '/{owner}/{name}/import/lfs':
+        patch:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+      '/admin/ldap/teams/{team_id}/mapping':
+        patch:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+      '/admin/ldap/teams/{team_id}/sync':
+        post:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+
+      '/admin/ldap/users/{username}/mapping':
+        patch:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+      '/admin/ldap/users/{username}/sync':
+        post:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+
+      '/admin/organizations':
+        post:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+
+      '/admin/organizations/{org}':
+        patch:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+      '/admin/pre_receive_environments':
+        get:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
+        post:
+          actionMinutes:
+            - max: 50000
+              period:
+                amount: 1
+                unit: month
+          packagesStorage:
+            - max: 50
+              period:
+                amount: 1
+                unit: forever
