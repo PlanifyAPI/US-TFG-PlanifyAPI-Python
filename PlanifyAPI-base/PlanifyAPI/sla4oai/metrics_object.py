@@ -2,7 +2,7 @@
 This module provides the MetricsObject class for the SLA4OAI model.
 """
 
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 
 class MetricsObject:
@@ -33,3 +33,12 @@ class MetricsObject:
             Dict[str, Any]: The metrics.
         """
         return self._metrics
+
+    def get_names_of_metrics(self) -> List[str]:
+        """
+        Returns the names of the metrics.
+
+        Returns:
+            List[str]: The names of the metrics.
+        """
+        return list(self._metrics.keys())
