@@ -1,6 +1,7 @@
 """ This module contains the Parser class.  """
 
 from typing import Dict
+
 import yaml
 
 
@@ -30,3 +31,4 @@ class Parser:
                 return yaml.safe_load(stream)
             except yaml.YAMLError as exc:
                 print(exc)
+    
