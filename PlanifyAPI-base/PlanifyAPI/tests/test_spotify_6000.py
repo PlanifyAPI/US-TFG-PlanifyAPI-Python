@@ -13,47 +13,49 @@ BASE_URL = "https://api.spotify.com"
 SPOTIFY_CLIENT_ID = environ.get("SPOTIFY_CLIENT_ID")
 SPOTIFY_CLIENT_SECRET = environ.get("SPOTIFY_CLIENT_SECRET")
 
-response = requests.post(
-    "https://accounts.spotify.com/api/token",
-    data={
-        "grant_type": "client_credentials",
-        "client_id": SPOTIFY_CLIENT_ID,
-        "client_secret": SPOTIFY_CLIENT_SECRET,
-    },
-)
 
-API_KEY = response.json().get("access_token")
+def create_caller():
+    response = requests.post(
+        "https://accounts.spotify.com/api/token",
+        data={
+            "grant_type": "client_credentials",
+            "client_id": SPOTIFY_CLIENT_ID,
+            "client_secret": SPOTIFY_CLIENT_SECRET,
+        },
+    )
 
-headers = {
-    "accept": "application/json",
-    "Authorization": f"Bearer {API_KEY}",
-}
+    API_KEY = response.json().get("access_token")
 
-api_call_spotify = APICall(
-    "spotify-6000",
-    f"{BASE_URL}/v1/search?q=remaster%2520track%3ADoxy%2520artist%3AMiles%2520Davis&type=album",
-    "GET",
-    headers,
-)
+    headers = {
+        "accept": "application/json",
+        "Authorization": f"Bearer {API_KEY}",
+    }
 
-rate_spotify = api_call_spotify.get_calls_per_second(6000, timedelta(hours=1))
+    api_call_spotify = APICall(
+        "spotify-6000",
+        f"{BASE_URL}/v1/search?q=remaster%2520track%3ADoxy%2520artist%3AMiles%2520Davis&type=album",
+        "GET",
+        headers,
+    )
 
-print(
-    f"""La cuota a cumplir es de 6000 cada 1 hora. Por ello, se realizarán {rate_spotify} llamadas por segundo."""
-)
+    rate_spotify = api_call_spotify.get_calls_per_second(6000, timedelta(hours=1))
 
+    print(
+        f"""La cuota a cumplir es de 6000 cada 1 hora. Por ello, se realizarán {rate_spotify} llamadas por segundo."""
+    )
 
-@rate_limited(rate_spotify)
-def call_api_spotify():
-    """
-    Función para realizar llamadas a la API.
-    """
+    @rate_limited(rate_spotify)
+    def call_api_spotify():
+        """
+        Función para realizar llamadas a la API.
+        """
 
-    response = api_call_spotify.execute()
-    return f"{response.status_code}"
+        response = api_call_spotify.execute()
+        return f"{response.status_code}"
 
-
-start_hour = time.monotonic()
-while start_hour < time.monotonic() + 86400 * 3:
-    response = call_api_spotify()
-    print("Respuesta:", response)
+    start_hour = time.monotonic()
+    while start_hour < time.monotonic() + 86400 * 3:
+        response = call_api_spotify()
+        print("Respuesta:", response)
+        if response != 200:
+            create_caller()
