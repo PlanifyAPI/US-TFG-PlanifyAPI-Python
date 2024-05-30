@@ -38,7 +38,7 @@ headers = {
 }
 
 api_call_amadeus = APICall(
-    "Amadeus",
+    "amadeus",
     f"{BASE_URL}/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2025-05-02&adults=1&nonStop=false&max=250",
     "GET",
     headers,
