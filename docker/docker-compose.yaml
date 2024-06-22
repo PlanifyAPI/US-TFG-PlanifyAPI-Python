@@ -1,0 +1,37 @@
+version: '3'
+
+networks:
+  loki:
+
+volumes:
+  grafana-data:
+
+services:
+  loki:
+    image: grafana/loki:latest
+    ports:
+      - '3100:3100'
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - /home/javi/dev/US-TFG-PlanifyAPI-Python/docker/loki-config.yaml:/etc/loki/local-config.yaml
+    networks:
+      - loki
+
+  promtail:
+    image: grafana/promtail:latest
+    volumes:
+      - /home/javi/dev/US-TFG-PlanifyAPI-Python/log:/var/log/alberto
+      - /home/javi/dev/US-TFG-PlanifyAPI-Python/PlanifyAPI-base/log:/var/log/javi
+      - /home/javi/dev/US-TFG-PlanifyAPI-Python/docker/promtail-config.yaml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml -config.expand-env=true
+    networks:
+      - loki
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - loki
