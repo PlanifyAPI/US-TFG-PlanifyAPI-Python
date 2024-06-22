@@ -51,6 +51,44 @@ class QuotasObject:
         """
         return list(self._paths.get(path, {}).get_operations().keys())
 
+    def get_max_by_path_and_method(self, path: str, method: str) -> int:
+        """
+        Returns the max for a given method on a given path.
+
+        Args:
+            path (str): The path.
+            method (str): The method.
+
+        Returns:
+            int: The max for the given method on the given path.
+        """
+        return (
+            self._paths.get(path, {})
+            .get_operations()
+            .get(method, {})
+            .get_limits()[0]
+            .get_max()
+        )
+
+    def get_period_by_path_and_method(self, path: str, method: str) -> str:
+        """
+        Returns the period for a given method on a given path.
+
+        Args:
+            path (str): The path.
+            method (str): The method.
+
+        Returns:
+            str: The period for the given method on the given path.
+        """
+        return (
+            self._paths.get(path, {})
+            .get_operations()
+            .get(method, {})
+            .get_limits()[0]
+            .get_period()
+        )
+
     def get_limit_by_method(self, path: str, method: str) -> List[LimitObject]:
         """
         Returns the limit for a given method on a given path.

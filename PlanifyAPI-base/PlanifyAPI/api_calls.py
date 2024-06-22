@@ -113,7 +113,7 @@ class APICall:
             511,
         ]
 
-        log_data["timestamp"] = int(datetime.now().timestamp())
+        log_data["timestamp"] = datetime.now().timestamp()
 
         if response is None or response.status_code in error_codes:
             log_data["level"] = "ERROR"

@@ -4,15 +4,15 @@ This module provides the SLA (Service Level Agreement) model for OAI (OpenAPI In
 
 from typing import Dict, Any
 
-from PlanifyAPI.sla4oai.context_object import ContextObject
-from PlanifyAPI.sla4oai.infrastructure_object import InfrastructureObject
-from PlanifyAPI.sla4oai.pricing_object import PricingObject
-from PlanifyAPI.sla4oai.metrics_object import MetricsObject
-from PlanifyAPI.sla4oai.plans_object import PlansObject
-from PlanifyAPI.sla4oai.quotas_object import QuotasObject
-from PlanifyAPI.sla4oai.rates_object import RatesObject
-from PlanifyAPI.sla4oai.guarantees_object import GuaranteesObject
-from PlanifyAPI.sla4oai.configurations_object import ConfigurationsObject
+from .context_object import ContextObject
+from .infrastructure_object import InfrastructureObject
+from .pricing_object import PricingObject
+from .metrics_object import MetricsObject
+from .plans_object import PlansObject
+from .quotas_object import QuotasObject
+from .rates_object import RatesObject
+from .guarantees_object import GuaranteesObject
+from .configurations_object import ConfigurationsObject
 
 
 class SLA4OAI:
