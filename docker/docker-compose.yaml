@@ -21,7 +21,7 @@ services:
     image: grafana/promtail:latest
     volumes:
       - /home/javi/dev/US-TFG-PlanifyAPI-Python/log:/var/log/alberto
-      - /home/javi/dev/US-TFG-PlanifyAPI-Python/PlanifyAPI-base/log:/var/log/javi
+      - /home/javi/dev/US-TFG-PlanifyAPI-Python/PlanifyAPI-base/PlanifyAPI/log:/var/log/javi
       - /home/javi/dev/US-TFG-PlanifyAPI-Python/docker/promtail-config.yaml:/etc/promtail/config.yml
     command: -config.file=/etc/promtail/config.yml -config.expand-env=true
     networks:
